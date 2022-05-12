@@ -16,4 +16,4 @@ jobs:
 
       - name: Renaming Files
         run: |
-          git mv template.gemspec linksquares-new-gem-repo.gemspec
+          git mv -v template.gemspec linksquares-new-gem-repo.gemspec
