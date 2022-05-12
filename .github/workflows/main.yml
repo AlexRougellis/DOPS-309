@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  version:
+  renaming:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,3 +18,6 @@ jobs:
         with:
           find: "template" 
           replace: "new_test_repo"
+          
+      - name: Push Changes to the Remote Repo
+        run: git push -u origin master
