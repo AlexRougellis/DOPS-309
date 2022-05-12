@@ -19,3 +19,7 @@ jobs:
         with:
           find: "template" 
           replace: "new_test_repo"
+          
+      - name: Push and Commit Changes to the Remote Repo
+        run: 
+          git push -u origin test_renaming
