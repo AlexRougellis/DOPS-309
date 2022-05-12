@@ -17,3 +17,4 @@ jobs:
       - name: Renaming Files
         run: |
           git mv -v test_template.gemspec linksquares-new-gem-repo.gemspec
+        # [-v] = Report the filenames as they are renamed or moved
