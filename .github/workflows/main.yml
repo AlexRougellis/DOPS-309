@@ -22,7 +22,7 @@ jobs:
           
       - name: Push and Commit Changes to the Remote Repo
         run: |
-          git config --global user.name 'Visvadevas'
+          git config --global user.name 'Alex'
           git config --global user.email 'noreply@linksquares.com'
-          git commit -am "Automated report"
+          git commit -am "Test Test 123"
           git push
