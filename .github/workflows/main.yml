@@ -18,3 +18,10 @@ jobs:
         run: |
           git mv -v test_template.gemspec linksquares-new-gem-repo.gemspec
         # [-v] = Report the filenames as they are renamed or moved
+        
+      - name: Push and Commit Changes to the Remote Repo
+        run: |
+          git config --global user.name 'Alex'
+          git config --global user.email 'noreply@linksquares.com'
+          git commit -am "Test Test 123"
+          git push
