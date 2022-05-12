@@ -1,12 +1,12 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Testing Find and Replace
+name: Testing Renaming the Files
 
 on:
   workflow_dispatch:
 
 jobs:
-  renaming:
+  renaming_files:
     runs-on: ubuntu-latest
 
     steps:
@@ -14,8 +14,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Find and Replace Template
-        uses: nguyenvanuyn96/str-find-and-replace-action@master
-        with:
-          find: "template" 
-          replace: "new_test_repo"
+      - name: Renaming Files
+        run: 
+          git mv template.gemspec linksquares-new-gem-repo.gemspec
