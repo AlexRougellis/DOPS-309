@@ -21,5 +21,8 @@ jobs:
           replace: "new_test_repo"
           
       - name: Push and Commit Changes to the Remote Repo
-        run: 
-          git push -u origin test_renaming
+        run: |
+          git config --global user.name 'Visvadevas'
+          git config --global user.email 'noreply@linksquares.com'
+          git commit -am "Automated report"
+          git push
