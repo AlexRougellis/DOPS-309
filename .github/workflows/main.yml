@@ -15,5 +15,5 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Renaming Files
-        run: 
+        run: |
           git mv template.gemspec linksquares-new-gem-repo.gemspec
