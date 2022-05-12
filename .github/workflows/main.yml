@@ -21,4 +21,4 @@ jobs:
           replace: "new_test_repo"
           
       - name: Push Changes to the Remote Repo
-        run: git push -u origin master
+        run: git push -u origin main
