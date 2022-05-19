@@ -26,8 +26,7 @@ jobs:
         id: upcase-repo-name
       
       - name: Testing Something
-        run: |
-          test=yes
+        run:
           echo ${{ steps.upcase-repo-name.outputs.repo-name }}
 
       - name: Find and Replace "Template"
