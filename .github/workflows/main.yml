@@ -21,19 +21,19 @@ jobs:
 
       - name: Uppercase Repo Name
         run: | 
-          repo-name=echo ${{ github.event.inputs.new_gem_repo_name }} | ruby -e 'puts ARGF.read.capitalize'
-          echo '::set-output name=repo-name::$repo-name'
+          repo_name=echo ${{ github.event.inputs.new_gem_repo_name }} | ruby -e 'puts ARGF.read.capitalize'
+          echo '::set-output name=repo_name::$repo_name'
         id: upcase-repo-name
       
       - name: Testing Something
         run:
-          echo ${{ steps.upcase-repo-name.outputs.repo-name }}
+          echo ${{ steps.upcase-repo-name.outputs.repo_name }}
 
       - name: Find and Replace "Template"
         uses: nguyenvanuyn96/str-find-and-replace-action@master
         with:
           find: "Template" 
-          replace: "${{ steps.upcase-repo-name.outputs.repo-name }}"
+          replace: "${{ steps.upcase-repo-name.outputs.repo_name }}"
           
           
       - name: Push and Commit Changes to the Remote Repo
