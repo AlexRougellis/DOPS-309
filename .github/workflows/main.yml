@@ -35,4 +35,4 @@ jobs:
           git config --global user.name 'AlexRougellis'
           git config --global user.email 'arougellis@linksquares.com'
           git commit -am "Test Test 123"
-          git push
+          git push origin test_renaming
