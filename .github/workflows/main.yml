@@ -28,7 +28,7 @@ jobs:
       - name: Testing Something
         run: |
           test=yes
-          echo test
+          echo $test
 
       - name: Find and Replace "Template"
         uses: nguyenvanuyn96/str-find-and-replace-action@master
