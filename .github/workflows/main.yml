@@ -27,7 +27,8 @@ jobs:
       
       - name: Testing Something
         run: |
-          echo ${{ steps.upcase-repo-name.outputs.repo-name }}
+          test=yes
+          echo test
 
       - name: Find and Replace "Template"
         uses: nguyenvanuyn96/str-find-and-replace-action@master
