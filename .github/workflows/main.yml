@@ -32,6 +32,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.NEW_GEM_REPO_GITHUB_TOKEN }}
         run: |
+          git init
           git config --global user.name 'AlexRougellis'
           git config --global user.email 'arougellis@linksquares.com'
           git commit -am "Test Test 123"
