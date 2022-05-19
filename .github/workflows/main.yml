@@ -2,6 +2,10 @@ name: Testing Find and Replace
 
 on:
   workflow_dispatch:
+    inputs: 
+      new_gem_repo_name:
+        description: "Proper naming convention : `gemname` "
+        required: true
 
 jobs:
   renaming:
