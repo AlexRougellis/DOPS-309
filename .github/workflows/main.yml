@@ -19,6 +19,7 @@ jobs:
         run: | 
           repo-name = echo ${{ github.event.inputs.new_gem_repo_name }} | ruby -e 'puts ARGF.read.capitalize'
           echo '::set-output name=repo-name::$repo-name'
+          echo ${{ steps.upcase-repo-name.outputs.repo-name }}
         id: upcase-repo-name
 
       - name: Find and Replace "Template"
