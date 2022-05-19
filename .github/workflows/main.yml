@@ -20,12 +20,13 @@ jobs:
           replace: "${{ github.event.inputs.new_gem_repo_name }}"
 
       - name: Uppercase Repo Name
-        run: | 
-          name=${{ github.event.inputs.new_gem_repo_name }}
-          repo_name=${(C)$name}
+        run: |
+          repo_name=${(C)${{ github.event.inputs.new_gem_repo_name }}}
           echo '::set-output name=repo_name::$repo_name'
         id: upcase-repo-name
-      
+
+# name=${{ github.event.inputs.new_gem_repo_name }}
+
       - name: Testing Something
         run:
           echo ${{ steps.upcase-repo-name.outputs.repo_name }}
