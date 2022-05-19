@@ -21,7 +21,7 @@ jobs:
 
       - name: Uppercase Repo Name
         run: | 
-          repo-name = echo ${{ github.event.inputs.new_gem_repo_name }} | ruby -e 'puts ARGF.read.capitalize'
+          repo-name=echo ${{ github.event.inputs.new_gem_repo_name }} | ruby -e 'puts ARGF.read.capitalize'
           echo '::set-output name=repo-name::$repo-name'
         id: upcase-repo-name
       
