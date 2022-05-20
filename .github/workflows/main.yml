@@ -23,7 +23,7 @@ jobs:
         run: |
           name=${{github.event.inputs.new_gem_repo_name}}
           repo_name=${(C)name}
-          echo '::set-output name=repo_name::$repo_name'
+          echo $repo_name
         id: upcase-repo-name
 
 # name=${{ github.event.inputs.new_gem_repo_name }}
