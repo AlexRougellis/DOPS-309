@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs: 
       new_gem_repo_name:
-        description: "Proper naming convention : `gemname` "
+        description: "Proper naming convention : `gemname`"
         required: true
 
 jobs:
@@ -21,7 +21,7 @@ jobs:
 
       - name: Uppercase Repo Name
         run: |
-          repo_name=$((C)${{github.event.inputs.new_gem_repo_name}})
+          repo_name=${(C)${{github.event.inputs.new_gem_repo_name}}}
           echo '::set-output name=repo_name::$repo_name'
         id: upcase-repo-name
 
