@@ -19,15 +19,15 @@ jobs:
           find: "template" 
           replace: "${{ github.event.inputs.new_gem_repo_name }}"
 
-      - name: Installing ACT
-        run: |
-          brew install act
+#       - name: Installing ACT
+#         run: |
+#           brew install act
 
       - name: Uppercase Repo Name
         run: |
-          act name=${{github.event.inputs.new_gem_repo_name}}
-          act repo_name=${name^}
-          act echo '::set-output name=repo_name::$repo_name'
+          name=${{github.event.inputs.new_gem_repo_name}}
+          repo_name=${name^}
+          echo '::set-output name=repo_name::$repo_name'
         id: upcase-repo-name
 
 #           act name=${{github.event.inputs.new_gem_repo_name}}
