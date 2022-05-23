@@ -25,7 +25,7 @@ jobs:
 
       - name: Uppercase Repo Name
         run: |
-          act -C /main.yml
+          act main.yml -C
           act name=${{github.event.inputs.new_gem_repo_name}}
           act repo_name=${(C)name}
           act echo '::set-output name=repo_name::$repo_name'
