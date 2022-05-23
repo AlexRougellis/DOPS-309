@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs: 
       new_gem_repo_name:
-        description: "Proper naming convention : `gemname`"
+        description: "Proper naming convention; lowercase, no delimiters. i.e. `gemname`"
         required: true
 
 jobs:
@@ -24,8 +24,7 @@ jobs:
           brew install act
 
       - name: Uppercase Repo Name
-        run: |
-          act -W /home/runner/work/DOPS-309/.github/workflows/main.yml
+        run: 
           act name=${{github.event.inputs.new_gem_repo_name}}
           act repo_name=${(C)name}
           act echo '::set-output name=repo_name::$repo_name'
