@@ -26,11 +26,12 @@ jobs:
       - name: Uppercase Repo Name
         run: 
           act name=${{github.event.inputs.new_gem_repo_name}}
-          act repo_name=${(C)name}
+          act repo_name=${name^}
           act echo '::set-output name=repo_name::$repo_name'
         id: upcase-repo-name
 
-# name=${{ github.event.inputs.new_gem_repo_name }}
+#           act name=${{github.event.inputs.new_gem_repo_name}}
+#           act repo_name=${(C)name}
 
       - name: Testing Something
         run:
