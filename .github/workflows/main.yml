@@ -24,7 +24,7 @@ jobs:
           brew install act
 
       - name: Uppercase Repo Name
-        run: 
+        run: |
           act name=${{github.event.inputs.new_gem_repo_name}}
           act repo_name=${name^}
           act echo '::set-output name=repo_name::$repo_name'
