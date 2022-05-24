@@ -26,7 +26,8 @@ jobs:
 # Attempt 3
       - name: Uppercase & Find and Replace "Template"
         run: 
-          sed -i 's/${{github.event.inputs.new_gem_repo_name}}/${${{github.event.inputs.new_gem_repo_name}}^}/' test_template.gemspec
+          upcase_repo_name=${(C){{github.event.inputs.new_gem_repo_name}}}
+          sed -i 's/${{github.event.inputs.new_gem_repo_name}}/$upcase_repo_name/' /home/runner/work/DOPS-309/DOPS-309/test_template.gemspec
           
 # Attempt 2
 #       - name: Uppercase Repo Name
