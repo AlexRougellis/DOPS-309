@@ -24,7 +24,7 @@ jobs:
 #           brew install act
 
 # Attempt 3
-      - name: Uppercase Repo Name
+      - name: Uppercase & Find and Replace "Template"
         run: 
           sed -i'' 's/${{github.event.inputs.new_gem_repo_name}}/${${{github.event.inputs.new_gem_repo_name}}^}/' template.gemspec
 
@@ -43,11 +43,12 @@ jobs:
 #         run:
 #           echo ${{ steps.upcase-repo-name.outputs.repo_name }}
 
-      - name: Find and Replace "Template"
-        uses: nguyenvanuyn96/str-find-and-replace-action@master
-        with:
-          find: "Template" 
-          replace: "${{ steps.upcase-repo-name.outputs.repo-name }}"
+# Commented out in place for `sed` command
+#       - name: Find and Replace "Template"
+#         uses: nguyenvanuyn96/str-find-and-replace-action@master
+#         with:
+#           find: "Template" 
+#           replace: "${{ steps.upcase-repo-name.outputs.repo-name }}"
           
           
       - name: Push and Commit Changes to the Remote Repo
