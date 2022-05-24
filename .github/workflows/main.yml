@@ -23,18 +23,25 @@ jobs:
 #         run: |
 #           brew install act
 
+# Attempt 3
       - name: Uppercase Repo Name
-        run: |
-          repo_name=${${{github.event.inputs.new_gem_repo_name}}^}
-          echo '::set-output name=repo_name::$repo_name'
-        id: upcase-repo-name
+        run: 
+          sed -i'' 's/${{github.event.inputs.new_gem_repo_name}}/${${{github.event.inputs.new_gem_repo_name}}^}/' template.gemspec
 
+# Attempt 2
+#       - name: Uppercase Repo Name
+#         run: |
+#           repo_name=${${{github.event.inputs.new_gem_repo_name}}^}
+#           echo '::set-output name=repo_name::$repo_name'
+#         id: upcase-repo-name
+        
+# Attempt 1
 #           act name=${{github.event.inputs.new_gem_repo_name}}
 #           act repo_name=${(C)name}
 
-      - name: Testing Something
-        run:
-          echo ${{ steps.upcase-repo-name.outputs.repo_name }}
+#       - name: Testing Something
+#         run:
+#           echo ${{ steps.upcase-repo-name.outputs.repo_name }}
 
       - name: Find and Replace "Template"
         uses: nguyenvanuyn96/str-find-and-replace-action@master
