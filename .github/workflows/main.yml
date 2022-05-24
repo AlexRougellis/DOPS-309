@@ -19,16 +19,21 @@ jobs:
           find: "template" 
           replace: "${{ github.event.inputs.new_gem_repo_name }}"
 
-#       - name: Installing ACT
-#         run: |
-#           brew install act
+
+# Attempt 4
+      - name: Uppercase Repo Name
+        run: |
+          #!/bin/bash 
+          repo_name=echo ${{github.event.inputs.new_gem_repo_name}} || ruby -e 'puts ARGF.read.capitalize'
+          echo '::set-output name=repo_name::$repo_name'
+        id: upcase-repo-name
 
 # Attempt 3
-      - name: Uppercase & Find and Replace "Template"
-        run: |
-          name=${{github.event.inputs.new_gem_repo_name}}
-          upcase_repo_name=${(C)$name}
-          sed -i 's/${{github.event.inputs.new_gem_repo_name}}/$upcase_repo_name/' /home/runner/work/DOPS-309/DOPS-309/test_template.gemspec
+#       - name: Uppercase & Find and Replace "Template"
+#         run: |
+#           name=${{github.event.inputs.new_gem_repo_name}}
+#           upcase_repo_name=${(C)$name}
+#           sed -i 's/${{github.event.inputs.new_gem_repo_name}}/$upcase_repo_name/' /home/runner/work/DOPS-309/DOPS-309/test_template.gemspec
           
 # Attempt 2
 #       - name: Uppercase Repo Name
@@ -46,11 +51,11 @@ jobs:
 #           echo ${{ steps.upcase-repo-name.outputs.repo_name }}
 
 # Commented out in place for `sed` command
-#       - name: Find and Replace "Template"
-#         uses: nguyenvanuyn96/str-find-and-replace-action@master
-#         with:
-#           find: "Template" 
-#           replace: "${{ steps.upcase-repo-name.outputs.repo-name }}"
+      - name: Find and Replace "Template"
+        uses: nguyenvanuyn96/str-find-and-replace-action@master
+        with:
+          find: "Template" 
+          replace: "${{ steps.upcase-repo-name.outputs.repo-name }}"
           
           
       - name: Push and Commit Changes to the Remote Repo
